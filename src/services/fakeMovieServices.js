@@ -7,6 +7,7 @@ const movies = [
 		genre: { _id: "5b21ca3eeb7f6fbccd471818", name: "Action" },
 		numberInStock: 6,
 		dailyRentalRate: 2.5,
+		liked: true,
 	},
 	{
 		_id: "5b21ca3eeb7f6fbccd471816",
@@ -45,13 +46,6 @@ const movies = [
 	},
 	{
 		_id: "5b21ca3eeb7f6fbccd47181g",
-		title: "Gone Girl",
-		genre: { _id: "5b21ca3eeb7f6fbccd471820", name: "Thriller" },
-		numberInStock: 7,
-		dailyRentalRate: 4.5,
-	},
-	{
-		_id: "5b21ca3eeb7f6fbccd47181e",
 		title: "Gone Girl",
 		genre: { _id: "5b21ca3eeb7f6fbccd471820", name: "Thriller" },
 		numberInStock: 7,
