@@ -6,6 +6,7 @@ import Pagination from "./common/Pagination";
 import Like from "./common/Like";
 import paginate from "../utils/paginate";
 import ListGroup from "./common/ListGroup";
+import filter from "../utils/filter";
 
 class Movies extends Component {
 	state = {
@@ -17,7 +18,7 @@ class Movies extends Component {
 
 	componentDidMount() {
 		const genres = [{ name: "All Genres", _id: "all_genres" }, ...getGenres()];
-		this.setState({ movies: getMovies(), genres });
+		this.setState({ movies: getMovies(), genres, selectedGenre: genres[0] });
 	}
 
 	handleDelete = (movieId) => {
@@ -54,10 +55,7 @@ class Movies extends Component {
 
 		if (!count) return <p>There are no movies in the database.</p>;
 
-		const filtered =
-			selectedGenre && selectedGenre._id !== "all_genres"
-				? allMovies.filter((m) => m.genre._id === selectedGenre._id)
-				: allMovies;
+		const filtered = filter(allMovies, selectedGenre, "all_genres");
 
 		const movies = paginate(filtered, currentPage, pageSize);
 
